@@ -43,5 +43,4 @@ public interface CategoryService {
     @PostMapping(value = "/category/save")
     Result<JsonObject> addCategoryById(@Validated({MingruiOperation.Add.class})@RequestBody CategoryEntity categoryEntity);
 
-
 }

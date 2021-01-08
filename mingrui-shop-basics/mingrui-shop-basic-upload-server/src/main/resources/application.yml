@@ -11,7 +11,16 @@ eureka:
 mingrui:
   upload:
     path:
-      windows: D:\\images
-      linux: /shenyaqi/images
+      windows: E:\\upload
+      linux: /root/upload
     img:
-      host: http://image.mrshop.com
+      #图片服务器主机
+      host: http://121.4.81.173/
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  thumb-image: # 缩略图
+    width: 60
+    height: 60
+  tracker-list: # tracker地址
+    - 121.4.81.173:22122
