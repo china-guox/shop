@@ -17,6 +17,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
@@ -177,5 +178,14 @@ public class GoodsServiceImpl extends BaseApiService implements GoodsService {
         }
 
         return this.setResultError("数据错误");
+    }
+
+    @Override
+    public Result<JSONObject> upAndDownStatus(SpuDTO spuDTO) {
+        if(ObjectUtil.isNotNull(spuDTO)){
+            spuMapper.updateByPrimaryKeySelective(BaiduBeanUtil.copyProperties(spuDTO, SpuEntity.class));
+            return this.setResultSuccess();
+        }
+        return this.setResultError("获取数据失败");
     }
 }

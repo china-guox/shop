@@ -40,4 +40,8 @@ public interface GoodsService {
     @ApiOperation(value = "通过spuId删除商品")
     @DeleteMapping(value = "goods/deleteGoodsBySpuId")
     public Result<JSONObject> deleteGoodsBySpuId(Integer spuId);
+
+    @ApiOperation(value = "通过spuId下架商品")
+    @PutMapping(value = "goods/upAndDownStatus")
+    public Result<JSONObject> upAndDownStatus(@RequestBody SpuDTO spuDTO);
 }
